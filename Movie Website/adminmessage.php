@@ -60,6 +60,9 @@ margin: 0 auto;
 <?php
 require('db.php');
 session_start();
+if($_SESSION['adminlogin']==false){
+    header("Location: adminlogin.php");
+}
 
 $mquery = "SELECT * FROM `message`";
 $mresult = mysqli_query($con,$mquery);

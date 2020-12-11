@@ -21,7 +21,7 @@ $loginpassword = mysqli_real_escape_string($con,$loginpassword);
 	$query = "SELECT * FROM `customer` WHERE phone='$loginphonenumber'
 AND customer_password= '$loginpassword'";
 $result = mysqli_query($con,$query) or die(mysql_error());
-var_dump($result);
+
 $rows = mysqli_num_rows($result);
 
 	if($rows!=0){

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['login']=FALSE;
+$_SESSION['adminlogin']==FALSE; 
 header("Location: home.php");
 
 ?>

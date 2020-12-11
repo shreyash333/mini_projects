@@ -79,7 +79,7 @@ margin: 0 auto;
 require('db.php');
 session_start();
 
-if(isset($_REQUEST['receipt'])){
+if(isset($_REQUEST['receipt'])){ 
     $_SESSION['booking_id']=$_REQUEST['receipt'];
     $bquery = "SELECT * FROM `booking` WHERE `booking_id`=".$_SESSION['booking_id']."";
 $bresult = mysqli_query($con,$bquery);

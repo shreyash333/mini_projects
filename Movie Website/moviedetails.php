@@ -28,7 +28,11 @@
     </style>
 </head>
 <body class="mainbody">
-
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 
 <?php
 require('db.php');
@@ -77,7 +81,7 @@ if (isset($_POST['moviedetails'])){
     <section class="moviedetails" id="moviedetails">
         <div class="max-width"> 
             <div style="display: inline-flex;">
-                <button class="button " style="margin-left: 100px;"> < Go Back </button>
+                <button class="button " style="margin-left: 100px;" button onclick="goBack()"> < Go Back </button>
                 <h2 class="mainheader" style="align-content: center; font-size: 40px; padding-left: 150px; padding-bottom: 50px;"><?php echo $moviename?></h2>
             </div>
             <form action="" name="moviedetails" method="POST">

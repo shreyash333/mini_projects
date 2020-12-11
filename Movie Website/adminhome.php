@@ -64,6 +64,10 @@ margin: 0 auto;
 require('db.php');
 session_start();
 
+if($_SESSION['adminlogin']==false){
+    header("Location: adminlogin.php");
+}
+
 $bquery = "SELECT * FROM `booking`";
 $bresult = mysqli_query($con,$bquery);
    

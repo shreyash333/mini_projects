@@ -13,7 +13,7 @@
 </style>
 <head>
     <title>Movie Website</title>
-    <link rel="stylesheet" href="Exp3.CSS">
+    
     
 </head>
 <body class="mainbody">

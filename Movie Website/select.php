@@ -105,27 +105,9 @@
 </head>
 <body class="mainbody">
 <script>
-function myFunction() {
-  
-  
-  document.write("<td></td>"); 
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-  document.write("<td></td>");
-
-   
-  } 
+function goBack() {
+  window.history.back();
+}
 </script>
 <?php
 session_start();
@@ -177,8 +159,8 @@ if (isset($_REQUEST['selectseat'])){
 <section class="selection" id="selection">
         <div class="max-width">
             <div style="display: inline-flex;">
-                <button class="button " style="margin-left: 100px;">
-                    < Go Back s</button>
+                <button class="button " style="margin-left: 100px;" onclick="goBack()">
+                    < Go Back </button>
                         <h2 class="mainheader"
                             style="align-content: center; font-size: 40px; padding-left: 100px; padding-bottom: 50px;">
                             Select your Seats</h2>
@@ -190,7 +172,7 @@ if (isset($_REQUEST['selectseat'])){
                         <h2 class="selectheader">Please Select Show Date </h2>
                     </div>
                     <div>
-                    <input class="form__input"  type="date" name="showdate" placeholder="select show date" min="2020-12-02" max="2020-12-10">
+                    <input class="form__input"  type="date" name="showdate" placeholder="select show date" min="2020-12-12" max="2020-12-19">
                     </div>
                     <br>
                     <br>
