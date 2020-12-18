@@ -43,7 +43,7 @@ function head2(){
 <?php
 require('db.php');
 session_start();
-$_SESSION['adminlogin']==FALSE; 
+$_SESSION['adminlogin']=FALSE; 
 
 if($_SESSION['login']==TRUE){
     $logname = "Logout";

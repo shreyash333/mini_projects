@@ -220,7 +220,7 @@ if (isset($_REQUEST['selectseat'])){
                     <br>
                     <div class="field">
                         <h2 class="selectheader">Enter Number of Seats</h2>
-                        <input type="text" class="form__input" name="noSeats" placeholder="Number of Seats" required="" />
+                        <input type="text" class="form__input" name="noSeats" placeholder="Number of Seats" required="" min="1" max="2"/>
   
                     </div>
                 </div>

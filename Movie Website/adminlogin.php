@@ -86,7 +86,7 @@ $rows = mysqli_num_rows($result);
 	if($rows!=0){
 	$_SESSION['phonenumber'] = $loginphonenumber;
         // Redirect user to index.php
-        $_SESSION['adminlogin']==true; 
+        $_SESSION['adminlogin']=true; 
 	header("Location: adminhome.php");
 	 }else{
 		 $_SESSION['error']=1;
