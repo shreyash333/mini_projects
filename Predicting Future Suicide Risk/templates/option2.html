@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'allcss.CSS')}}" />
+<head>
+<title>Suicide Predicion Website</title>
+    <style>
+       a:link {
+        color: white;
+      }
+      /* visited link */
+      a:visited {
+        color: white;
+      }
+      /* mouse over link */
+      a:hover {
+        color: white;
+      }
+      /* selected link */
+      a:active {
+        color: white;
+      }
+
+      .buttonbar{
+        
+	margin: 0%;
+	padding-left: 550px;
+}
+    </style>
+  
+</head>
+
+<body class="mainbody">
+<script>
+function head1(){
+    document.write("<h1 class='mainheader'>Machine learning prediction model for predicting future risk of suicide</h1>");
+}
+function head2(){
+    document.write("<h2 class='secondheader'>Get Future Suicide Prediction (India)</h2>");
+}
+
+</script>
+
+
+    
+    
+    <div class="content">
+        
+        <section>
+            <div class="section3" id="home">
+                <div class="center">
+                    <div style="text-align: center; padding-left: 300px; ">
+                       <script>head1(); head2();</script> 
+                    
+                    </div>
+                    <form action="/allIndiaPrediction", method="post">
+                    <div style="text-align: center; padding-top: 10px; padding-left: 170px;" >
+                    
+                        <br>
+                        <div>
+                            <h2 class="secondheader" style="font-size: 25px; margin-top: 20px; padding-left: 190px; text-align: center;">Enter year</h2>
+                        </div>
+                        <div>
+                            <input type="number" class="field" name="year" id="year" placeholder="yyyy" required="" />
+                        </div>
+                            <br>
+                            <br><br>
+
+                        <div>    
+                            <input class="button"style="text-decoration: none; width: 200px; color:white" type="submit" value="Get Prediction"> </input>
+                        </div>
+                    </div>
+                    </form>
+                    
+                    
+                
+
+                </div>
+            </div>
+        </section>
+        
+
+
+
+</body>
+
+</html>

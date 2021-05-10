@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'allcss.CSS')}}" />
+<head>
+<title>Suicide Predicion Website</title>
+    <style>
+       a:link {
+        color: white;
+      }
+      /* visited link */
+      a:visited {
+        color: white;
+      }
+      /* mouse over link */
+      a:hover {
+        color: white;
+      }
+      /* selected link */
+      a:active {
+        color: white;
+      }
+
+      .buttonbar{
+        
+	margin: 0%;
+	padding-left: 550px;
+}
+    </style>
+  
+</head>
+
+<body class="mainbody">
+<script>
+function head1(){
+    document.write("<h1 class='mainheader'>Machine learning prediction model for predicting future risk of suicide</h1>");
+}
+function head2(){
+    document.write("<h2 class='secondheader'>Suicide doesn’t end the chances of life getting worse, it eliminates the possibility of it ever getting any better.</h2>");
+}
+
+</script>
+
+
+    
+    
+    <div class="content">
+        
+        <section>
+            <div class="section3" id="home">
+                <div class="center">
+                    <div style="text-align: center; padding-left: 300px; ">
+                       <script>head1(); head2();</script> 
+                    
+                    </div>
+                   <p>{{year}}</P>
+                   <p>{{state}}</P>
+                    
+                    <div style="text-align: center; padding-top: 40px; padding-left: 170px;" >
+                    <div>    
+                        <button class="button" ><a style="text-decoration: none;" href="/option1">Check Past Suicide Statistics</a> </button>
+                    </div>
+                    <br>
+                    <div>    
+                        <button class="button" ><a style="text-decoration: none;" href="/option2">Get Future Suicide Prediction (India)</a> </button>
+                    </div>
+                         <br>
+                    <div>    
+                        <button class="button" ><a style="text-decoration: none;" href="/option3">Get Future Suicide Prediction (State)</a> </button>
+                    </div>
+                         <br>
+                    <div>    
+                        <button class="button" ><a style="text-decoration: none;" href="/option4">Get Individual Suicide Tendency</a> </button>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+
+
+
+</body>
+
+</html>

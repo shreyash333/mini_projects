@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'allcss.CSS')}}" />
+<head>
+<title>Suicide Predicion Website</title>
+    <style>
+       a:link {
+        color: white;
+      }
+      /* visited link */
+      a:visited {
+        color: white;
+      }
+      /* mouse over link */
+      a:hover {
+        color: white;
+      }
+      /* selected link */
+      a:active {
+        color: white;
+      }
+
+      .buttonbar{
+        
+	margin: 0%;
+	padding-left: 550px;
+}
+    </style>
+  
+</head>
+
+<body class="mainbody">
+<script>
+function head1(){
+    document.write("<h1 class='mainheader'>Machine learning prediction model for predicting future risk of suicide</h1>");
+}
+function head2(){
+    document.write("<h2 class='secondheader'>Get Individual Suicide Tendency</h2>");
+}
+
+</script>
+
+
+    
+    
+    <div class="content">
+        
+        <section>
+            <div class="section3" id="home">
+                <div class="center">
+                    <div style="text-align: center; padding-left: 300px; ">
+                       <script>head1(); head2();</script>
+                      
+                    <form action="/indivisualPrediction", method="post">
+                    <div style="text-align: center; padding-top: 20px; padding-left: 0px;" >
+                    
+                
+                      <div class="" style="display: flex;">
+                      <div style="width: 300px;">
+                    <div>
+                    <h2 class="secondheader" style="font-size: 25px; margin-top: 20px; padding-left: 100px; width: 300px; text-align: center;">Select your Age group</h2>
+                    </div>
+
+                    <div style="padding-left: 100px;">
+                        
+							<select class="field" id="cp" name = "age" required style="width: 300px;">
+							  <option disabled selected value> </option>
+							  <option value = "1">0-14</option>
+							  <option value = "2">15-29</option>
+							  <option value = "3">30-44</option>
+							  <option value = "4">45-59</option>
+							  <option value = "5">60+</option>
+							 
+							</select>
+                    </div>
+                  </div>
+                       
+
+                
+
+                  <div style="width: 300px;">
+                    <div>
+                    <h2 class="secondheader" style="font-size: 25px; margin-top: 20px; padding-left: 150px; width: 300px; text-align: center;">Select your Gender</h2>
+                    </div>
+
+                    <div style="padding-left: 150px;">
+                        
+							<select class="field" id="cp" name = "gender" required style="width: 300px;">
+							  <option disabled selected value> </option>
+							  <option value = "0">Female</option>
+							  <option value = "1">Male</option>
+							</select>
+                    </div>
+                  </div>
+                      </div>
+                      <div style="width: 300px;">
+                    <div>
+                    <h2 class="secondheader" style="font-size: 25px; margin-top: 20px; padding-left: 270px; width: 300px; text-align: center;">Select your State</h2>
+                    </div>
+
+                    <div style="padding-left: 270px;">
+                        
+							<select class="field" id="cp" name = "state" required style="width: 300px;">
+							  <option disabled selected value> </option>
+							  <option value = "0">A & N ISLANDS</option>
+                <option value = "1">ANDHRA PRADESH</option>
+                <option value = "2">ARUNACHAL PRADESH</option>
+                <option value = "3">ASSAM</option>
+                <option value = "4">BIHAR</option>
+                <option value = "5">CHANDIGARH</option>
+                <option value = "6">CHHATTISGARH</option>
+                <option value = "7">D & N HAVELI</option>
+                <option value = "8">DAMAN & DIU</option>
+                <option value = "9">DELHI (UT)</option>
+                <option value = "10">GOA</option>
+                <option value = "11">GUJARAT</option>
+                <option value = "12">HARYANA</option>
+                <option value = "13">HIMACHAL PRADESH</option>
+                <option value = "14">JAMMU & KASHMIR</option>
+                <option value = "15">JHARKHAND</option>
+                <option value = "16">KARNATAKA</option>
+                <option value = "17">KERALA</option>
+                <option value = "18">LAKSHADWEEP</option>
+                <option value = "19">MADHYA PRADESH</option>
+                <option value = "20">MAHARASHTRA</option>
+                <option value = "21">MANIPUR</option>
+                <option value = "22">MEGHALAYA</option>
+                <option value = "23">MIZORAM</option>
+                <option value = "24">NAGALAND</option>
+                <option value = "25">ODISHA</option>
+                <option value = "26">PUDUCHERRY</option>
+                <option value = "27">PUNJAB</option>
+                <option value = "28">RAJASTHAN</option>
+                <option value = "29">SIKKIM</option>
+                <option value = "30">TAMIL NADU</option>
+                <option value = "31">TRIPURA</option>
+                <option value = "32">UTTAR PRADESH</option>
+                <option value = "33">UTTARAKHAND</option>
+                <option value = "34">WEST BENGAL</option>
+							</select>
+                    </div>
+                  </div>
+                        <br><br><br>
+                        
+                    
+                    <div style="padding-right: 120px;">    
+                        <input class="button"style="text-decoration: none; width: 200px; color:white" type="submit" value="Get Prediction"> </input>
+                    </div>
+                 </div>
+                
+                  </form>
+                </div>
+            </div>
+        </section>
+        
+
+
+
+</body>
+
+</html>

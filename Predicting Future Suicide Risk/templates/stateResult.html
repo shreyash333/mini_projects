@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'allcss.CSS')}}" />
+<head>
+<title>Suicide Predicion Website</title>
+    <style>
+       a:link {
+        color: white;
+      }
+      /* visited link */
+      a:visited {
+        color: white;
+      }
+      /* mouse over link */
+      a:hover {
+        color: white;
+      }
+      /* selected link */
+      a:active {
+        color: white;
+      }
+
+      .buttonbar{
+        
+	margin: 0%;
+	padding-left: 550px;
+}
+    </style>
+  
+</head>
+
+<body class="mainbody" style="background-image: url(static/3.jpg);">
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawAccuracy);
+
+      function drawAccuracy() {
+
+        var data3 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Accuracy', {{accuracy}}],
+        ]);
+
+        var option3 = {
+          width: 350, height: 350,
+             yellowFrom:40, yellowTo: 75,
+            redFrom:0, redTo: 40,
+             greenFrom:75, greenTo: 100,
+          
+          minorTicks: 20
+        };
+
+        var chart3 = new google.visualization.Gauge(document.getElementById('accuracy'));
+
+        chart3.draw(data3, option3);
+
+        setInterval(function() {
+          data3.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          chart3.draw(dat3, option3);
+        }, 13000);
+       
+      }
+    </script>
+
+
+    
+    
+    <div class="content">
+        
+        <section>
+            <div class="section3" id="home">
+                <div class="center" style="padding-left: 0px; padding-top: 50px; ">
+                    <div style="text-align: center; padding-left: 130px; padding-top: 50px;">
+                      <h1 class='mainheader' style="width: 1200px; font-size: 60px;">Machine learning prediction model for predicting future risk of suicide</h1>
+                    
+                    </div>
+                    
+                    
+                    <div style="display: flex; padding-left: 120px; padding-top: 50px">
+  <div >
+                    <h1 class='secondheader' style="font-size: 60px;">Total Prediected Count of Suicide (State : {{statename}})</h1>
+    <h2 class='mainheader' style="font-size: 70px;">{{state_prediction}}</h></div>
+      <div>
+      <h1 style="color: white; font-size: 25px;font-weight: bold;text-align: center;">Prediction model Accuracy</h1>
+       <div id="accuracy" style="width: 350px; height: 350px; padding-top: 15px"></div></div>
+    </div>
+  
+    
+   <br> <br> 
+
+                </div>
+            </div>
+        
+        </section>
+
+
+
+</body>
+
+</html>
