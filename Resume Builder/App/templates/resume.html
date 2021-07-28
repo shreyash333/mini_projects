@@ -1,0 +1,208 @@
+<html>
+<head>
+  <title>{% if Resume_info.full_name %}{{Resume_info.full_name}}'s Resume {% endif %}</title>
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  color: rgba(0,0,0,0.75);
+}
+
+h1 {
+  color: rgba(0,0,0,0.9);
+}
+
+h1, p {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px 24px;
+}
+
+h2, p {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px 24px;
+}
+
+
+.line-break {
+  width: 100%;
+  height: 1px;
+  margin: 16px auto;
+  border-bottom: 1px solid #eee;
+}
+
+.resume {
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 48px auto;
+  padding: 16px 0px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.14);
+}
+
+.resume-group {
+  box-sizing: border-box;
+  padding: 8px 0px;
+  width: 100%;
+  display: flex;
+  border-left: 3px solid transparent;
+  transition: 0.2s;
+}
+
+.resume-group:hover {
+  border-left: 3px solid #64FFDA;
+}
+
+.left-col {
+  width: 35%;
+}
+
+.right-col {
+  width: 65%;
+}
+
+.instructions {
+  opacity: 0.5;
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 16px auto;
+}
+
+@page { size: auto;  margin: 0mm; }
+
+.button {
+  background: #1DE9B6;
+  padding: 8px 16px;
+  color: white;
+  font-weight: bold;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s all;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.00), 0 1px 2px rgba(0, 0, 0, 0.00);
+  
+}
+
+</style>
+<script>
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+</head>
+<body>
+
+  <div class="resume" id="resume">
+  <br>
+    {% if Resume_info.full_name %}
+    <h1>{{Resume_info.full_name}}</h1>
+    {% endif %}
+    
+    {% if Resume_info.professional_title %}
+    <h2>{{Resume_info.professional_title}}</h2>
+    {% endif %}
+    {% if Resume_info.email %}
+    <p >Email : {{Resume_info.email}}</p>
+    {% endif %}
+    {% if Resume_info.phone %}
+    <p >Contact : {{Resume_info.phone}}</p>
+    {% endif %}
+    {% if Resume_info.address %}
+    <p >Address : {{Resume_info.address}}</p>
+    {% endif %}
+    {% if Resume_info.birthdate %}
+    <p >Birth Date : {{Resume_info.birthdate}}</p>
+    {% endif %}
+    <div class="line-break"></div>
+  {% if Resume_info.about_you%}
+    <div class="resume-group">
+    <div class="left-col"><p>ABOUT ME</p></div>
+    <div class="right-col">
+      <p>{{Resume_info.about_you}}</p>
+</div>
+</div>
+{% endif %}
+{% if Resume_info.career_objective %}
+<div class="resume-group"><div class="left-col">
+  <p>CAREER OBJECTIVES</p>
+</div>
+<div class="right-col">
+  <p>{{Resume_info.career_objective}}</p>
+</div>
+</div>
+{% endif %}
+{% if Resume_info.education %}
+<div class="resume-group">
+  <div class="left-col">
+    <p>EDUCATION</p>
+  </div>
+  <div class="right-col">
+    <p>{{Resume_info.education}}</p>
+</div>
+</div>
+{% endif %}
+
+{% if Resume_info.skills %}
+<div class="resume-group"><div class="left-col">
+  <p>SKILLS</p>
+</div>
+<div class="right-col">
+  <p>{{Resume_info.skills}}</p>
+</div>
+</div>
+{% endif %}
+
+{% if Resume_info.projects %}
+<div class="resume-group"><div class="left-col">
+  <p>PROJECTS</p>
+</div>
+<div class="right-col">
+  <p>{{Resume_info.projects}}</p>
+</div>
+</div>
+{% endif %}
+
+{% if Resume_info.experience %}
+<div class="resume-group"><div class="left-col">
+  <p>EXPERIENCE</p>
+</div>
+<div class="right-col">
+  <p>{{Resume_info.experience}}</p>
+</div>
+</div>
+{% endif %}
+
+{% if Resume_info.reference %}
+<div class="resume-group"><div class="left-col">
+  <p>REFERENCES</p>
+</div>
+<div class="right-col">
+  <p>{{Resume_info.reference}}</p>
+</div>
+</div>
+{% endif %}
+
+</div style="justify-content: center;">
+<input class="button" style="background-color:#128585; margin: 0 730px" type="button" onclick=printDiv('resume') value="Print" />
+</body>
+
+</div>
+<div class="instructions">Ctrl + P  and "Save As PDF" to make a copy of this resume</div>
+</body>
+</html>
