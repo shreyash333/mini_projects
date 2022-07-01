@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>Automated Assignment Checker</title>
+    <style>
+    body {
+        background-color: black;
+    }
+      
+    h1 {
+        color: #4CAF50;
+        text-align: center;
+        font-size: 70px;
+        margin: 20px 0;
+    }
+      
+    .load {
+        height: 250px;
+        width: 250px;
+        margin: auto;
+        border-radius: 50%;
+        position: relative;
+        top: 20%;
+        overflow: hidden;
+        border: 4px solid #DDD;
+    }
+      
+    .load::after {
+        content: "";
+        position: absolute;
+        top: 25%;
+        left: -50%;
+        height: 200%;
+        width: 200%;
+        background-color: #D01919;
+        box-shadow: 0 0 15px #F93757;
+        border-radius: 40%;
+        animation: rotate 10s linear forwards infinite;
+        opacity: 0.9;
+    }
+      
+    h2 {
+        color: white;
+        font-size: 70px;
+        text-align: center;
+        font-family: "Trebuchet MS";
+        position: relative;
+        top: 10%;
+    }
+      
+    @keyframes rotate {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+</head>
+  
+<body>
+    <h1>Automated Assignment Checker</h1>
+    <div class="load">
+        <h2>75%</h2>
+    </div>
+</body>
+  
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'allcss.CSS')}}" />
+
+<head>
+     
+    <title>Automated Assignment Checker</title>
+
+</head>
+
+<body class="mainbody">
+    <script>
+        function head1() {
+            document.write("<h1 class='mainheader'>Automated Assignment Checker</h1>");
+        }
+
+        function head2() {
+            document.write("<h2 class='secondheader'>Provide the folder path and get the plagiarism percentage within the assignments.</h2>");
+        }
+    </script>
+
+
+
+
+    <div class="content">
+
+        <section>
+            <div class="section3" id="home">
+                <div class="center">
+                    <div style="text-align: center; padding-left: 450px; ">
+                        <script>
+                            head1();
+                            head2();
+                        </script>
+
+                    </div>
+
+                    <form action="/getresult" , method="post">
+                        <div style="text-align: center; padding-top: 10px; padding-left: 500px;">
+
+                            <br>
+                            <div>
+                                <h2 class="secondheader" style="font-size: 25px; margin-top: 20px; padding-left: 30px; text-align: center;">Enter the path</h2>
+                            </div>
+                            <div>
+                                <input type="text" class="field" name="path" id="path" placeholder="path://" required="" />
+                            </div>
+                            <br>
+<br>
+                            <div>
+                                <h2 class="secondheader" style="font-size: 25px; margin-top: 20px; padding-left: 30px; text-align: center;">Enter threshold plagiarism percentage</h2>
+                            </div>
+                            <div>
+                                <input type="text" class="field1" name="percentage" id="percentage" placeholder="percentage (%)" required="" />
+                            </div>
+                            <br>
+                            <br><br>
+
+                            <div>
+                                <input class="button" style="text-decoration: none; width: 200px; color:white" type="submit" value="Get Report"> </input>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+</body>
+
+</html>

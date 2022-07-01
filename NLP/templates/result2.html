@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'allcss.CSS')}}" />
+
+<head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Assignment Checker</title>
+
+   
+
+</head>
+
+<body class="mainbody2">
+    <script>
+        function head1() {
+            document.write("<h1 class='mainheader1'>Automated Assignment Checker</h1>");
+        }
+
+        function head2() {
+            document.write("<h2 class='secondheader1'>Report</h2>");
+        }
+    </script>
+
+
+
+
+    <div class="content">
+
+        <section>
+            <div class="section4" id="home">
+                <div class="center">
+                    <div style="text-align: center; padding-left: 70px;  ">
+                        <script>
+                            head1();
+                            head2();
+                        </script>
+
+                    </div>
+
+                    
+                </div>
+            </div>
+           <br>
+            <div id="tbl" style="text-align: center; padding-left: 70px; padding-right: 70px;"></div>
+             <br><br><br>
+             <div style="text-align: center; padding-left: 70px; padding-right: 70px;">
+            
+            <input class="button" type="button" style="text-decoration: none; width: 200px; color:white;" value="Download Report" onclick="PrintElem();" /> 
+        </div>
+                             <br><br><br> <br>
+        </section>
+
+
+
+<script>
+
+    var rstr =  '{{ result_list }}';
+    var pstr = '{{ percent_list }}'
+    const rlist = rstr.split("@");
+    const plist = pstr.split("@");
+
+    var div=document.getElementById("tbl");
+    var a=document.createElement('table');
+
+    let s ="<tr><th>"+"Clusters"+"</th>"
+    for(let i = 0; i < rlist.length; i++){
+        s = s + "<th colspan="+2+">Cluster "+i+"</th>"
+    }
+    s= s+"</tr>"
+
+    var maxnum =0
+    for(let i = 0; i < rlist.length; i++){
+       templ = rlist[i].split("*")
+       if (maxnum < templ.length){
+        maxnum = templ.length;
+       }
+    }
+    var index =0
+    s =s+"<tr><th>"+"Base file"+"</th>"
+            //alert(rlist[0].split("*")[0])
+        for(let i = 0; i < rlist.length; i++){
+        temprl = rlist[i].split("*")
+        temppl = plist[i].split("*")
+        if (temprl[index]){
+            //alert(temprl[index])
+        s = s + "<td>"+temprl[index]+"</td><td>100%</td>" 
+        }  }  
+    s= s+"</tr>"
+    index = index+1
+
+    while (index <maxnum){
+        s =s+"<tr><th>"+"File "+index+"</th>"
+            //alert(rlist[0].split("*")[0])
+        for(let i = 0; i < rlist.length; i++){
+        temprl = rlist[i].split("*")
+        temppl = plist[i].split("*")
+        if (temprl[index]){
+            //alert(temprl[index])
+            //s =  s+"<td><table> <tr> <th>File name</th><th>Plag. percentage</th></tr><tr> <td>"+temprl[index]+"</td><td>"+temppl[index]+"</td></tr></table></td>"
+            //s =  s+"<td><table><tr> <td>"+temprl[index]+"</td><td>"+temppl[index]+"%</td></tr></table></td>"
+            s =  s+"<td>"+temprl[index]+"</td><td>"+temppl[index]+"</td>"
+        //s = s + "<td>"+temprl[index]+"</td>" 
+        }    
+    }
+    s= s+"</tr>"
+    index = index+1
+    }
+   
+
+ a.innerHTML = s
+    div.appendChild(a);
+    
+    function PrintElem(){
+    var mywindow = window.open('', 'PRINT', 'height=650px,width=1150px');
+
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body>');
+        mywindow.document.write('<br><br><br>');
+    mywindow.document.write('<h1 style="text-align: center;  color: red;">Automated Assignment Checker  </h1>');
+    mywindow.document.write('<br>');
+    mywindow.document.write('<p>Path : ' + '{{ path }}'  + '</p>');
+    mywindow.document.write('<p>Threshold Plagiarism Percentage : ' + '{{ thresholdsimarity }}' +" % " + '</p>');
+    let currentDate = new Date();
+let cDay = currentDate.getDate();
+let cMonth = currentDate.getMonth() + 1;
+let cYear = currentDate.getFullYear();
+let date = cDay + "/" + cMonth + "/" + cYear
+let time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+    mywindow.document.write('<p>Date : ' + date  + '</p>');
+    mywindow.document.write('<p>Time : ' + time  + '</p>');
+    mywindow.document.write('<br>');
+    mywindow.document.write('<h2 style="text-align: center;"> Report </h2>');
+    mywindow.document.write('<br>');
+    var outputString = "<style> .milestone-table { table-layout: fixed; width: 390px; } .milestone-table td {    width: 30px;    display: inline-block;}table,th,td {    border: 1px solid;}table {    width: 100%;    border-collapse: collapse;    background-color: #f6f1f1;}th {    height: 20px;}td {    height: 20px;    vertical-align: bottom;}th,td {    padding: 15px;    text-align: left;}th {    background-color: #f6f1f1;    color: #d81414; font-size: 20px;}</style>"
+    mywindow.document.write(document.getElementById('tbl').innerHTML + outputString);
+    mywindow.document.write('<style>@page { size: auto;  margin: 0mm; } @media print {   body {       display: table;       table-layout: fixed;       padding-left: 1.5cm;       padding-right: 1.5cm;       height: auto;   }} #mydivision { width: 100%; height: auto; overflow: visible;}</style>');
+    mywindow.document.write('</body></html>');
+    
+    mywindow.document.close();
+    mywindow.focus(); 
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+}
+</script>
+</body>
+
+</html>
